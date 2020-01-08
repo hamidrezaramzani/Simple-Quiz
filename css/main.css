@@ -167,3 +167,16 @@ body {
     margin: 0 10px !important;
     float: left;
 }
+
+.nextBtn {
+    padding: 10px 25px;
+    float: right;
+    border: 1px solid green;
+    color: green;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.nextBtn:hover{
+    background: green;
+    color:#fff;
+}

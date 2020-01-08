@@ -1,9 +1,11 @@
 const request = new XMLHttpRequest();
 const startDom = document.getElementById("start");
 const gameDom = document.getElementById("game");
-const allAnswer = document.getElementById('allAnswer');
-let index = 1;
+const allAnswer = document.getElementById("allAnswer");
+let index = 0;
 let currentQuestions = {};
+let resultQuestions = [];
+// start game ...
 document.getElementById("startQuizBtn").addEventListener("click", function(e) {
   e.preventDefault();
   const langInput = document.getElementById("lang");
@@ -15,18 +17,24 @@ document.getElementById("startQuizBtn").addEventListener("click", function(e) {
   getData(data);
 });
 
-document.getElementById("backToStart").addEventListener("click", () => {  
-  resetGameDom();
-  startDom.classList.remove("hiddenStart");
-  gameDom.classList.remove("showGame");
+// back to home page
+document.getElementById("backToStart").addEventListener("click", () => {
+  if (confirm("are you sure to close quiz?")) {
+    resetGameDom();
+  }
 });
 
+// reset questions if btn reset clicked
 function resetGameDom() {
-  index = 1;
-  currentQuestions = {};
-  allAnswer.innerHTML = "";
+  (index = 0),
+    (resultQuestions = []),
+    (currentQuestions = []),
+    (allAnswer.innerHTML = "");
+  startDom.classList.remove("hiddenStart");
+  gameDom.classList.remove("showGame");
 }
 
+// 1 - get data from json file ...
 function getData(data) {
   request.open("GET", "js/questions.json", true);
   request.onreadystatechange = function() {
@@ -39,6 +47,7 @@ function getData(data) {
   request.send(null);
 }
 
+// parse questions
 function parseQuestion(questions, data) {
   return questions
     .filter(item => item.level == data.level)[0]
@@ -47,6 +56,7 @@ function parseQuestion(questions, data) {
     );
 }
 
+// 2 - call set info and show game
 function startGame(selectQuestions) {
   if (selectQuestions) {
     currentQuestions = selectQuestions;
@@ -58,23 +68,72 @@ function startGame(selectQuestions) {
   }
 }
 
+// 3 - set info game in page
 function gotoGame(selectQuestions) {
   createQuestionDom(selectQuestions.questions[0]);
-  document.getElementById(
-    "countQuestion"
-  ).innerHTML = `1/${selectQuestions.questions.length}`;
-  document.getElementById("langSelect").innerHTML = selectQuestions.lang;
+  setGameInfo();
 }
 
+// 4 - create question dom ...
 function createQuestionDom(question) {
   const form = document.createElement("form");
+  const submitForm = getSubmitForm(form);
   document.getElementById("questionText").innerText = question.question;
-  question.answers.forEach((answer , index) => {
+  question.answers.forEach((answer, index) => {
     form.innerHTML += `
     <div class="answer">
-      <input type="radio" name="answer" id="${index}"> <label for="${index}">${answer}</label>
+      <input type="radio" name="answer" value="${index}" id="${index}"> <label for="${index}">${answer}</label>
     </div>
     `;
   });
+  form.append(submitForm);
   allAnswer.appendChild(form);
+}
+
+function getSubmitForm(form) {
+  const submitFormBtn = document.createElement("button");
+  submitFormBtn.classList.add("nextBtn");
+  submitFormBtn.type = "button";
+  submitFormBtn.innerText = "Next";
+  submitFormBtn.onclick = nextClicked;
+  return submitFormBtn;
+}
+
+function nextClicked() {
+  const answer = document.getElementsByName("answer");
+  for (const answerDom of answer) {
+    if (answerDom.checked) {
+      loadNextLevel(answerDom);
+      break;
+    }
+  }
+}
+function loadNextLevel(answerDom) {
+  let current = currentQuestions.questions[index];
+  answerDom.value == current.correctQuestion
+    ? (current.status = true)
+    : (current.status = false);
+  resultQuestions.push(current);
+  if (currentQuestions.questions.length != index + 1) {
+    index++;
+    allAnswer.innerHTML = "";
+    createQuestionDom(currentQuestions.questions[index]);
+    setGameInfo();
+  } else {
+    finishGame();
+  }
+}
+
+function setGameInfo() {
+  document.getElementById("countQuestion").innerHTML = `${index + 1} / ${
+    currentQuestions.questions.length
+  }`;
+  document.getElementById("langSelect").innerHTML = currentQuestions.lang;
+}
+
+function finishGame() {
+  alert(`
+    correct : ${resultQuestions.filter(item => item.status).length}
+  `);
+  resetGameDom();
 }
