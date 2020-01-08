@@ -46,7 +46,6 @@
         <h2 id="questionText"></h2>                                              
         <br>  
         <div id="allAnswer"></div>        
-        
                           
     </div>
 

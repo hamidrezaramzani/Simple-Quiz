@@ -8,8 +8,8 @@
                     "correctQuestion": 1
                 },
                 {
-                    "question": "PHP server scripts are surrounded by delimiters, which?",
-                    "answers": ["<?php?>", "<%%>", "<&&>", "<script></script>"],
+                    "question": "What is the correct way to end a PHP statement?",
+                    "answers": [";", ":", "?", "[]"],
                     "correctQuestion": 0
                 },
                 {
@@ -30,6 +30,27 @@
                     "correctQuestion": 0
                 }
             ]
+        }, {
+            "lang": "javascript",
+            "questions": [{
+                    "question": "How do you write \"Hello World\" in an alert box?",
+                    "answers": ["alert('Hello World')", "echo 'Hello World'", "console.WriteLine('Hello World')"],
+                    "correctQuestion": 0
+                },
+                {
+                    "question": "Where is the correct place to insert a JavaScript?",
+                    "answers": ["body", "head", "both the body section and the head section are correct"],
+                    "correctQuestion": 2
+                },
+                {
+                    "question": "The external JavaScript file must contain the <script> tag.",
+                    "answers": ["True", "False"],
+                    "correctQuestion": 1
+                }
+
+
+            ]
+
         }]
     },
     {
@@ -37,22 +58,81 @@
         "allQuestions": [{
             "lang": "php",
             "questions": [{
-                "question": "this is medium test",
-                "answers": ["Perosonal Hypertext proccesor", "Php: Hypertext proccesor", "Private Home Page"],
-                "correctQuestion": 1
-            }]
+                    "question": "How do you get information from a form that is submitted using the \"get\" method?",
+                    "answers": ["$_GET", "$_POST", "$_FILES"],
+                    "correctQuestion": 0
+                },
+                {
+                    "question": "When using the POST method, variables are displayed in the URL:",
+                    "answers": ["TRUE", "FALSE"],
+                    "correctQuestion": 1
+                },
+                {
+                    "question": "In PHP you can use both single quotes ( ' ' ) and double quotes ( \" \" ) for strings:",
+                    "answers": ["TRUE", "FALSE"],
+                    "correctQuestion": 0
+                }
+            ]
+        }, {
+            "lang": "javascript",
+            "questions": [{
+                    "question": "How do you create a function in JavaScript?",
+                    "answers": ["function myFunc()", "function::MyFunction", "new Function::()"],
+                    "correctQuestion": 0
+                }, {
+                    "question": "How do you call a function named \"myFunction\"?",
+                    "answers": ["call myFunction()", "myFunction()", "new myFunction()"],
+                    "correctQuestion": 1
+                },
+                {
+                    "question": "How to write an IF statement in JavaScript?",
+                    "answers": ["if 2 == 2", "if(2 == 2)", "2 == 2"],
+                    "correctQuestion": 1
+                }
+            ]
+
         }]
     },
     {
         "level": "hard",
         "allQuestions": [{
-            "lang": "php",
-            "questions": [{
-                "question": "this is hard test",
-                "answers": ["Perosonal Hypertext proccesor", "Php: Hypertext proccesor", "Private Home Page"],
-                "correctQuestion": 1
-            }]
-        }]
+                "lang": "php",
+                "questions": [{
+                        "question": "Include files must have the file extension \".inc\"",
+                        "answers": ["FALSE", "TRUE"],
+                        "correctQuestion": 1
+                    }, {
+                        "question": "What is the correct way to create a function in PHP?",
+                        "answers": ["new myFunction()", "function myFunction()"],
+                        "correctQuestion": 1
+                    }, {
+                        "question": "PHP allows you to send emails directly from a script",
+                        "answers": ["TRUE", "FALSE"],
+                        "correctQuestion": 0
+                    }
+
+                ]
+            },
+            {
+                "lang": "javascript",
+                "questions": [{
+                        "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
+                        "answers": ["if(a != 2)", "a <> 2", "!2 = 2 ", "2 <=> 2"],
+                        "correctQuestion": 0
+                    }, {
+                        "question": "How do you round the number 7.25, to the nearest integer?",
+                        "answers": ["rnd(7.25)", "rand(7.25)", "Math.round(7.25)"],
+                        "correctQuestion": 2
+                    },
+                    {
+                        "question": "Which event occurs when the user clicks on an HTML element?",
+                        "answers": ["onchange", "onclick", "onmousehover"],
+                        "correctQuestion": 1
+                    }
+                ]
+
+            }
+        ]
     }
 
 ]
