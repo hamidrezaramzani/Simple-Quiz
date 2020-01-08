@@ -10,7 +10,7 @@ document.getElementById("startQuizBtn").addEventListener("click", function(e) {
   changePage(data);
 });
 
-await function changePage(data) {
+async function changePage(data) {
   xmlHttp.onreadystatechange = () => {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
       console.log(xmlHttp.response);
