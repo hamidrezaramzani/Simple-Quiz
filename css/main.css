@@ -124,9 +124,10 @@ body {
         bottom: 0;
     }
 }
-.gameInfo{
+
+.gameInfo {
     display: inline-block;
-    width:100%;
+    width: 100%;
     margin-bottom: 15px;
 }
 
@@ -139,14 +140,30 @@ body {
     float: left;
 }
 
-.gameInfo #backToStart:hover{
-    background:#444;
-    color:#fff;
-    cursor:pointer;
+.gameInfo #backToStart:hover {
+    background: #444;
+    color: #fff;
+    cursor: pointer;
 }
 
 .gameInfo p {
     float: right;
-    font-size:18px;
-    color:#444;
+    font-size: 18px;
+    color: #444;
+}
+
+.answer {
+    float: left;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.answer input {
+    float: left;
+}
+
+.answer label {
+    line-height: -10px !important;
+    margin: 0 10px !important;
+    float: left;
 }

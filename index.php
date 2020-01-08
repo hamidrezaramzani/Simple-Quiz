@@ -37,15 +37,15 @@
         <div class="gameInfo">
             <button id="backToStart">Back</button>
             <p>
-                <span id="countQuestion"></span>
+                <span id="countQuestion"></span> 
                 -
-                <span id="langSelect"></span>
+                 <span id="langSelect"></span>
             </p>
         </div>
         <br>
-        <h2>
-            this is name            
-        </h2>       
+        <h2 id="questionText"></h2>                                              
+        <br>  
+        <div id="allAnswer"></div>                  
     </div>
 
 
