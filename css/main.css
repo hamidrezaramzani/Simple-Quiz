@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('../images/bg.png');
+    background-size: cover;
+}
+
+@font-face {
+    font-family: textFont;
+    src: url(../fonts/text.otf) format('embedded-opentype');
+}
+
+
+.main {
+    width: 30%;
+    height: 280px;
+    background: #fff;
+    padding: 15px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    animation: showMain .4s forwards;
+    -webkit-animation-fill-mode: forwards;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #000;
+
+}
+
+@keyframes showMain {
+    0% {
+        top: -600px;
+        bottom: 0;
+    }
+
+    100% {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.main h2 {
+    font-family: Ubuntu;
+    color: #333;
+}
+
+.main form label {
+    display: block;
+    font: 16px textFont;
+    color: #444;
+}
+
+.textBox {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    font: 14px textFont;
+    background: transparent;
+    margin: 10px 0;
+    ;
+
+}
+
+.btn {
+    display: block;
+    height: 35px;
+    width: 100%;
+    font-size: 15px;
+    background: #333;
+    border: 1px solid #333;
+    transition: all .2s ease-in;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transition: all .2s ease-in;
+    background: transparent;
+    color: #333;
+}
