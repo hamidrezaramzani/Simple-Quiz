@@ -1,40 +1,58 @@
-[
-   {
-       "level" : "easy",
-       "allQuestions" : [
-            {
-                "lang" : "php",
-                "questions"  : [
-                    {
-                        "question": "What does PHP stand for?",
-                        "answers": ["Perosonal Hypertext proccesor", "Php: Hypertext proccesor", "Private Home Page"],                        
-                        "correctQuestion": 1
-                    },
-                    {
-                        "question": "PHP server scripts are surrounded by delimiters, which?",
-                        "answers": ["<?php?>", "<%%>", "<&&>", "<script></script>"],                        
-                        "correctQuestion": 0
-                    },
-                    {
-                        "question": "How do you write \"Hello World\" in PHP",
-                        "answers": ["console.log('Hello World')", "'Hello World'", "Console.WriteLine('Hello World')", "echo 'Hello World';"],                        
-                        "correctQuestion": 3
-                    },
-                
-                    {
-                        "question": "All variables in PHP start with which symbol?",
-                        "answers": ["&", "$", "!"],
-                        "correctQuestion": 1
-                    },
-                
-                    {
-                        "question": "The PHP syntax is most similar to:",
-                        "answers": ["Perl And C", "JavaScript", "VBScript"],                        
-                        "correctQuestion": 0
-                    }
-                ]
-            }
-       ]
-   }
+[{
+        "level": "easy",
+        "allQuestions": [{
+            "lang": "php",
+            "questions": [{
+                    "question": "What does PHP stand for?",
+                    "answers": ["Perosonal Hypertext proccesor", "Php: Hypertext proccesor", "Private Home Page"],
+                    "correctQuestion": 1
+                },
+                {
+                    "question": "PHP server scripts are surrounded by delimiters, which?",
+                    "answers": ["<?php?>", "<%%>", "<&&>", "<script></script>"],
+                    "correctQuestion": 0
+                },
+                {
+                    "question": "How do you write \"Hello World\" in PHP",
+                    "answers": ["console.log('Hello World')", "'Hello World'", "Console.WriteLine('Hello World')", "echo 'Hello World';"],
+                    "correctQuestion": 3
+                },
+
+                {
+                    "question": "All variables in PHP start with which symbol?",
+                    "answers": ["&", "$", "!"],
+                    "correctQuestion": 1
+                },
+
+                {
+                    "question": "The PHP syntax is most similar to:",
+                    "answers": ["Perl And C", "JavaScript", "VBScript"],
+                    "correctQuestion": 0
+                }
+            ]
+        }]
+    },
+    {
+        "level": "medium",
+        "allQuestions": [{
+            "lang": "php",
+            "questions": [{
+                "question": "this is medium test",
+                "answers": ["Perosonal Hypertext proccesor", "Php: Hypertext proccesor", "Private Home Page"],
+                "correctQuestion": 1
+            }]
+        }]
+    },
+    {
+        "level": "hard",
+        "allQuestions": [{
+            "lang": "php",
+            "questions": [{
+                "question": "this is hard test",
+                "answers": ["Perosonal Hypertext proccesor", "Php: Hypertext proccesor", "Private Home Page"],
+                "correctQuestion": 1
+            }]
+        }]
+    }
 
 ]

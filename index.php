@@ -9,23 +9,23 @@
 <link rel="stylesheet" href="css/main.css">
 
 <body>
-    <div class="main start">
+    <div class="main" id="start">
         <h2>Select category?</h2>
         <br>
         <form action="">
             <label for="lang">select programming language:</label>
             <select name="lang" id="lang" class="textBox">
-                <option value="1">PHP</option>
-                <option value="2">JavaScript</option>
-                <option value="3">Java</option>
-                <option value="4">C#</option>
+                <option value="Php">Php</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
             </select>
 
             <label for="level">select level:</label>
             <select name="level" id="level" class="textBox">
-                <option value="1">hard</option>
-                <option value="2">medium</option>
-                <option value="3">easy</option>
+                <option value="hard">hard</option>
+                <option value="medium">medium</option>
+                <option value="easy">easy</option>
             </select>
 
             <button id="startQuizBtn" class="btn">start</button>
@@ -33,8 +33,19 @@
     </div>
 
 
-    <div class="main game">
-        <h2>this is name</h2>       
+    <div class="main" id="game">
+        <div class="gameInfo">
+            <button id="backToStart">Back</button>
+            <p>
+                <span id="countQuestion"></span>
+                -
+                <span id="langSelect"></span>
+            </p>
+        </div>
+        <br>
+        <h2>
+            this is name            
+        </h2>       
     </div>
 
 
