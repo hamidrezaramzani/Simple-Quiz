@@ -8,11 +8,6 @@ body {
     background-size: cover;
 }
 
-@font-face {
-    font-family: textFont;
-    src: url(../fonts/text.otf) format('embedded-opentype');
-}
-
 
 .main {
     width: 30%;
@@ -51,7 +46,7 @@ body {
 
 .main form label {
     display: block;
-    font: 16px textFont;
+    font-size: 16px;
     color: #444;
 }
 
@@ -59,7 +54,7 @@ body {
     width: 100%;
     height: 30px;
     border: 1px solid #ccc;
-    font: 14px textFont;
+    font-size:14px;
     background: transparent;
     margin: 10px 0;
     ;
