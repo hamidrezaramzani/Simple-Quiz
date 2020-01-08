@@ -1,3 +1,17 @@
+//H ypothetical data
+const data = [
+  {
+    question: "what is your name?",
+    answers: [ 
+      "ok" , "no" , "by" , "hello"
+    ],
+    level: "hard", 
+    
+  }
+];
+
+
+
 const xmlHttp = new XMLHttpRequest();
 document.getElementById("startQuizBtn").addEventListener("click", function(e) {
   e.preventDefault();
