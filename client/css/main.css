@@ -34,12 +34,12 @@ body {
 @keyframes showMain {
     0% {
         top: -600px;
-        bottom: 0;
+        bottom: 0;    
     }
 
     100% {
         top: 0;
-        bottom: 0;
+        bottom: 0;        
     }
 }
 
@@ -83,4 +83,7 @@ body {
     transition: all .2s ease-in;
     background: transparent;
     color: #333;
+}
+.game{
+    display: none;
 }
