@@ -17,8 +17,6 @@
             <select name="lang" id="lang" class="textBox">
                 <option value="Php">Php</option>
                 <option value="JavaScript">JavaScript</option>
-                <option value="Java">Java</option>
-                <option value="C#">C#</option>
             </select>
 
             <label for="level">select level:</label>

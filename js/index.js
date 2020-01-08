@@ -19,7 +19,7 @@ document.getElementById("startQuizBtn").addEventListener("click", function(e) {
 
 // back to home page
 document.getElementById("backToStart").addEventListener("click", () => {
-  if (confirm("are you sure to close quiz?")) {
+  if (confirm("are you sure to close in quiz?")) {
     resetGameDom();
   }
 });
@@ -108,6 +108,7 @@ function nextClicked() {
     }
   }
 }
+
 function loadNextLevel(answerDom) {
   let current = currentQuestions.questions[index];
   answerDom.value == current.correctQuestion
