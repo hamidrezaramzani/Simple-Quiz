@@ -1,12 +1,12 @@
 const request = new XMLHttpRequest();
 const startDom = document.getElementById("start");
 const gameDom = document.getElementById("game");
-const allAnswer = document.getElementById("allAnswer");
+const allAnswer = document.getElementById("all-answer");
 let index = 0;
 let currentQuestions = {};
 let resultQuestions = [];
 // start game ...
-document.getElementById("startQuizBtn").addEventListener("click", function(e) {
+document.getElementById("start-quiz-btn").addEventListener("click", function(e) {
   e.preventDefault();
   const langInput = document.getElementById("lang");
   const levelInput = document.getElementById("level");
@@ -26,12 +26,12 @@ document.getElementById("backToStart").addEventListener("click", () => {
 
 // reset questions if btn reset clicked
 function resetGameDom() {
-  (index = 0),
-    (resultQuestions = []),
-    (currentQuestions = []),
-    (allAnswer.innerHTML = "");
-  startDom.classList.remove("hiddenStart");
-  gameDom.classList.remove("showGame");
+  index = 0;
+  resultQuestions = [];
+  currentQuestions = [];
+  allAnswer.innerHTML = "";
+  startDom.classList.remove("hidden-start");
+  gameDom.classList.remove("show-game");
 }
 
 // 1 - get data from json file ...
@@ -41,7 +41,7 @@ function getData(data) {
     if (request.readyState == 4 && request.status == "200") {
       let questions = JSON.parse(request.responseText);
       let questionsByData = parseQuestion(questions, data);
-      startGame(questionsByData[0]);
+      startGame(questionsByData);
     }
   };
   request.send(null);
@@ -50,22 +50,22 @@ function getData(data) {
 // parse questions
 function parseQuestion(questions, data) {
   return questions
-    .filter(item => item.level == data.level)[0]
-    .allQuestions.filter(
+    .find(item => item.level == data.level)
+    .allQuestions.find(
       item2 => item2.lang.toLowerCase() == data.lang.toLowerCase()
     );
 }
 
 // 2 - call set info and show game
 function startGame(selectQuestions) {
-  if (selectQuestions) {
-    currentQuestions = selectQuestions;
-    gotoGame(selectQuestions);
-    startDom.classList.add("hiddenStart");
-    gameDom.classList.add("showGame");
-  } else {
+  if (!selectQuestions) {
     alert("question not found!");
+    return;
   }
+  currentQuestions = selectQuestions;
+  gotoGame(selectQuestions);
+  startDom.classList.add("hidden-start");
+  gameDom.classList.add("show-game");
 }
 
 // 3 - set info game in page
@@ -77,22 +77,21 @@ function gotoGame(selectQuestions) {
 // 4 - create question dom ...
 function createQuestionDom(question) {
   const form = document.createElement("form");
-  const submitForm = getSubmitForm(form);
-  document.getElementById("questionText").innerText = question.question;
+  const submitForm = getSubmitForm();
+  document.getElementById("question-text").innerText = question.question;
   question.answers.forEach((answer, index) => {
-    form.innerHTML += `
-    <div class="answer">
-      <input type="radio" name="answer" value="${index}" id="${index}"> <label for="${index}">${answer}</label>
-    </div>
-    `;
+    let divDom = getDiv();
+    divDom.append(getInput(index));
+    divDom.append(getLabel(index, answer));
+    form.append(divDom);
   });
   form.append(submitForm);
   allAnswer.appendChild(form);
 }
 
-function getSubmitForm(form) {
+function getSubmitForm() {
   const submitFormBtn = document.createElement("button");
-  submitFormBtn.classList.add("nextBtn");
+  submitFormBtn.classList.add("next-btn");
   submitFormBtn.type = "button";
   submitFormBtn.innerText = "Next";
   submitFormBtn.onclick = nextClicked;
@@ -111,25 +110,23 @@ function nextClicked() {
 
 function loadNextLevel(answerDom) {
   let current = currentQuestions.questions[index];
-  answerDom.value == current.correctQuestion
-    ? (current.status = true)
-    : (current.status = false);
+  current.status = answerDom.value == current.correctQuestion;
   resultQuestions.push(current);
-  if (currentQuestions.questions.length != index + 1) {
-    index++;
-    allAnswer.innerHTML = "";
-    createQuestionDom(currentQuestions.questions[index]);
-    setGameInfo();
-  } else {
+  if (currentQuestions.questions.length == index + 1) {
     finishGame();
+    return;
   }
+  index++;
+  allAnswer.innerHTML = "";
+  createQuestionDom(currentQuestions.questions[index]);
+  setGameInfo();
 }
 
 function setGameInfo() {
-  document.getElementById("countQuestion").innerHTML = `${index + 1} / ${
+  document.getElementById("count-questions").innerHTML = `${index + 1} / ${
     currentQuestions.questions.length
   }`;
-  document.getElementById("langSelect").innerHTML = currentQuestions.lang;
+  document.getElementById("lang-select").innerHTML = currentQuestions.lang;
 }
 
 function finishGame() {
@@ -137,4 +134,27 @@ function finishGame() {
     correct : ${resultQuestions.filter(item => item.status).length}
   `);
   resetGameDom();
+}
+
+// create dom
+function getDiv() {
+  const div = document.createElement("div");
+  div.classList.add("answer");
+  return div;
+}
+
+function getLabel(index, answer) {
+  const label = document.createElement("label");
+  label.innerText = answer;
+  label.setAttribute("for", index);
+  return label;
+}
+
+function getInput(index) {
+  const input = document.createElement("input");
+  input.setAttribute("type", "radio");
+  input.setAttribute("name", "answer");
+  input.setAttribute("value", index);
+  input.setAttribute("id", index);
+  return input;
 }

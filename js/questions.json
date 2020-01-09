@@ -99,12 +99,12 @@
                 "lang": "php",
                 "questions": [{
                         "question": "Include files must have the file extension \".inc\"",
-                        "answers": ["FALSE", "TRUE"],
+                        "answers": ["TRUE", "FALSE"],
                         "correctQuestion": 1
                     }, {
                         "question": "What is the correct way to create a function in PHP?",
-                        "answers": ["new myFunction()", "function myFunction()"],
-                        "correctQuestion": 1
+                        "answers": ["function myFunction()", "new myFunction()"],
+                        "correctQuestion": 0
                     }, {
                         "question": "PHP allows you to send emails directly from a script",
                         "answers": ["TRUE", "FALSE"],

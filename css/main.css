@@ -50,7 +50,7 @@ body {
     color: #444;
 }
 
-.textBox {
+.text-box {
     width: 100%;
     height: 30px;
     border: 1px solid #ccc;
@@ -85,7 +85,7 @@ body {
     display: none;
 }
 
-.hiddenStart {
+.hidden-start {
     animation: hiddenMain .4s forwards;
     -webkit-animation-fill-mode: forwards;
 }
@@ -102,13 +102,13 @@ body {
     }
 }
 
-.showGame {
+.show-game {
     display: block !important;
-    animation: showGameAnim .4s forwards;
+    animation: show-game-animate .4s forwards;
     -webkit-animation-fill-mode: forwards;
 }
 
-@keyframes showGameAnim {
+@keyframes show-game-animate {
     0% {
         top: -600px;
         bottom: 0;
@@ -120,13 +120,13 @@ body {
     }
 }
 
-.gameInfo {
+.game-info {
     display: inline-block;
     width: 100%;
     margin-bottom: 15px;
 }
 
-.gameInfo #backToStart {
+.game-info #backToStart {
     padding: 4px 15px;
     color: #444;
     border: 1px solid #444;
@@ -135,13 +135,13 @@ body {
     float: left;
 }
 
-.gameInfo #backToStart:hover {
+.game-info #backToStart:hover {
     background: #444;
     color: #fff;
     cursor: pointer;
 }
 
-.gameInfo p {
+.game-info p {
     float: right;
     font-size: 18px;
     color: #444;
@@ -163,7 +163,7 @@ body {
     float: left;
 }
 
-.nextBtn {
+.next-btn {
     padding: 10px 25px;
     float: right;
     border: 1px solid green;
@@ -171,7 +171,7 @@ body {
     cursor: pointer;
     border-radius: 4px;
 }
-.nextBtn:hover{
+.next-btn:hover{
     background: green;
     color:#fff;
 }
